@@ -19,13 +19,19 @@ source "amazon-ebs" "otms_salary_api" {
 }
 build {
   sources = ["source.amazon-ebs.otms_salary_api"]
+
   provisioner "shell" {
     inline = [
       # System updates
       "sudo apt-get update -y",
       "sudo apt-get upgrade -y",
+
       # Install Maven
-      "sudo apt install maven -y -",
+      "sudo apt install maven -y"
+    ]
+  }
+}
+
       
  
       # Insatll make
