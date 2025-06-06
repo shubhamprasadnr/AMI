@@ -6,19 +6,19 @@ packer {
     }
   }
 }
-source "amazon-ebs" "salary_api" {
+source "amazon-ebs" "otms_salary_api" {
   region          = "us-west-2"
   source_ami      = "ami-0a605bc2ef5707a18" # Ubuntu 22.04
   instance_type   = "t2.medium"
   ssh_username    = "ubuntu"
-  ami_name        = "salary-api-{{timestamp}}"
+  ami_name        = "otms_salary-api-{{timestamp}}"
   # Tag
   tags = {
-    Name = "salary-api-server"
+    Name = "otms_salary-api-server"
   }
 }
 build {
-  sources = ["source.amazon-ebs.salary_api"]
+  sources = ["source.amazon-ebs.otms_salary_api"]
   provisioner "shell" {
     inline = [
       # System updates
