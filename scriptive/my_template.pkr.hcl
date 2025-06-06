@@ -25,12 +25,25 @@ build {
     inline = [
       "sudo apt-get update -y",
       "sudo apt-get upgrade -y",
+
+      # Install Java 17
+      "sudo apt install openjdk-17-jdk -y",
+      "java -version",  # Verify Java installation
+      
+      # Install required packages
       "sudo apt install make -y",
       "sudo apt install maven -y",
-      "git clone https://github.com/OT-MICROSERVICES/salary-api.git",  # Clone Java repo
-      "export NODE_OPTIONS=--openssl-legacy-provider",                 # Set env variable
-      "cd salary-api",                                                 # Enter repo
-      "make build"                                                     # Build app
+      "sudo apt install wget -y",
+
+      # Clone the project repository
+      "git clone https://github.com/OT-MICROSERVICES/salary-api.git",
+
+      # Set environment variables (if needed for build)
+      "export NODE_OPTIONS=--openssl-legacy-provider",
+
+      # Build the application
+      "cd salary-api",
+      "make build"
     ]
   }
 }
