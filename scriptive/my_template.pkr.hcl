@@ -26,17 +26,11 @@ build {
       "sudo apt-get update -y",
       "sudo apt-get upgrade -y",
       "sudo apt install make -y",
-      "sudo apt install maven -y"
-       # Insatll make
-      "sudo apt install make -y",
-      # Clone Jaav repo
-      "https://github.com/OT-MICROSERVICES/salary-api.git",
-      # set environment variable
-      "export NODE_OPTIONS=--openssl-legacy-provider",
-      # Enter Frontend repo
-      "cd salary-api",
-      # Install dependencies and build the app
-      "make build",      
+      "sudo apt install maven -y",
+      "git clone https://github.com/OT-MICROSERVICES/salary-api.git",  # Clone Java repo
+      "export NODE_OPTIONS=--openssl-legacy-provider",                 # Set env variable
+      "cd salary-api",                                                 # Enter repo
+      "make build"                                                     # Build app
     ]
   }
 }
