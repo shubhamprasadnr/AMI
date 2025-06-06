@@ -27,11 +27,7 @@ build {
       "sudo apt-get upgrade -y",
       "sudo apt install make -y",
       "sudo apt install maven -y"
-    ]
-  }
-}
- 
-      # Insatll make
+       # Insatll make
       "sudo apt install make -y",
       # Clone Jaav repo
       "https://github.com/OT-MICROSERVICES/salary-api.git",
