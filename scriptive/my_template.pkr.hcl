@@ -18,13 +18,13 @@ source "amazon-ebs" "salary_api" {
   }
 }
 build {
-  sources = ["source.amazon-ebs.frontend_api"]
+  sources = ["source.amazon-ebs.salary_api"]
   provisioner "shell" {
     inline = [
       # System updates
       "sudo apt-get update -y",
       "sudo apt-get upgrade -y",
-      # Install NPM
+      # Install Maven
       "sudo apt install maven -y -",
       
  
