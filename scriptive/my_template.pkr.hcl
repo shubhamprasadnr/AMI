@@ -33,17 +33,11 @@ build {
       # Install required packages
       "sudo apt install make -y",
       "sudo apt install maven -y",
-      "sudo apt install wget -y",
 
       # Clone the project repository
       "git clone https://github.com/OT-MICROSERVICES/salary-api.git",
 
-      # Set environment variables (if needed for build)
-      "export NODE_OPTIONS=--openssl-legacy-provider",
-
-      # Build the application
-      "cd salary-api",
-      "make build"
+     
     ]
   }
 }
