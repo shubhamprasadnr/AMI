@@ -9,7 +9,7 @@ packer {
 source "amazon-ebs" "otms_salary_api" {
   region          = "eu-north-1"
   source_ami      = "ami-05d3e0186c058c4dd" # Ubuntu 22.04
-  instance_type   = "t2.medium"
+  instance_type   = "t3.micro"
   ssh_username    = "ubuntu"
   ami_name        = "otms_salary-api-{{timestamp}}"
   # Tag
