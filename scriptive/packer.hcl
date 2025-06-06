@@ -7,9 +7,23 @@ packer {
   }
 }
 
-CI/Generic/Scripted/AMI/Packer/ubuntu-ami.pkr.hcl
+variable "aws_region" {
+  type    = string
+  default = "us-west-2"
+}
+
+variable "ami_name" {
+  type    = string
+  default = "packer-ubuntu-instance-image"
+}
 
 source "amazon-ebs" "ubuntu" {
+  region                  = var.aws_region
+  instance_type           = "t2.micro"
+  ssh_username            = "ubuntu"
+  ami_name                = var.ami_name
+  ami_description         = "Ubuntu AMI created using Packer inside an EC2 instance"
+
   source_ami_filter {
     filters = {
       name                = "ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"
@@ -19,13 +33,6 @@ source "amazon-ebs" "ubuntu" {
     owners      = ["099720109477"]
     most_recent = true
   }
-
-  instance_type = "t2.micro"
-  ssh_username  = "ubuntu"
-  region        = var.aws_region
-
-  ami_name        = var.ami_name
-  ami_description = "Ubuntu AMI created using Packer inside an EC2 instance"
 }
 
 build {
@@ -33,17 +40,8 @@ build {
 
   provisioner "shell" {
     inline = [
-      "sudo apt update"
+      "sudo apt update -y",
+      "sudo apt install -y curl git"
     ]
   }
-}
-
-CI/Generic/Scripted/AMI/Packer/variables.pkr.hcl
-
-variable "aws_region" {
-  default = "us-east-1"
-}
-
-variable "ami_name" {
-  default = "packer-ubuntu-instance-image"
 }
